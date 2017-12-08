@@ -1,15 +1,15 @@
 package kelompok.app.sparing.ui;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import kelompok.app.sparing.R;
+import kelompok.app.sparing.base.BaseActivity;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        init(R.layout.activity_login);
     }
 }
