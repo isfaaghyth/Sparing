@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Sparing</string>
+    <string name="matchup">MATCH UP</string>
+    <string name="spectate">SPECTATE</string>
+    <string name="chats">CHATS</string>
+    <string name="contacts">CONTACTS</string>
+    <string name="profile">PROFILES</string>
 </resources>

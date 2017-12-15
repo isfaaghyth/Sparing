@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <tabs>
+        <tab id = "@+id/matchup"
+            icon = "@drawable/matchup1"
+            title = "MATCH UP"
+            />
+        <tab id = "@+id/spectate"
+            icon = "@drawable/spectate1"
+            title = "SPECTATE"
+            />
+        <tab id = "@+id/chat"
+            icon = "@drawable/chat1"
+            title = "CHAT"
+            />
+        <tab id = "@+id/friend"
+            icon = "@drawable/friend1"
+            title = "FRIENDS"
+            />
+        <tab id = "@+id/profile"
+            icon = "@drawable/profile1"
+            title = "PROFILE"
+            />
+    </tabs>
+
+</PreferenceScreen>
