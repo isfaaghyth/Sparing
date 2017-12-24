@@ -23,7 +23,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/profile1"/>
-    </LinearLayout>
+    </LinearLayout>// Foto Profile
 
     <LinearLayout
         android:layout_width="0dp"
@@ -37,7 +37,7 @@
             android:text="Kami setuju kalo begitu"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:typeface="sans"/>
+            android:typeface="sans"/> //Display Chat
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,7 +48,7 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@drawable/profile1"/>
+                android:src="@drawable/checked"/>// Logo check
 
             <TextView
                 android:layout_width="match_parent"
@@ -57,72 +57,15 @@
                 android:text="06.00"
                 android:textStyle="bold"
                 android:typeface="sans"
-                android:layout_marginLeft="5dp"/>
+                android:layout_marginLeft="5dp"/> // waktu
 
-        </LinearLayout>
+        </LinearLayout> //Display Chat dan waktu
 
     </LinearLayout>
 
 
 </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="10dp">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/profile1"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="5"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Kami setuju kalo begitu"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:typeface="sans"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp">
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/profile1"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:text="06.00"
-                    android:textStyle="bold"
-                    android:typeface="sans"
-                    android:layout_marginLeft="5dp"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-
-    </LinearLayout>
 
 </LinearLayout>
 
