@@ -1,4 +1,4 @@
-package kelompok.app.sparing.ui;
+package kelompok.app.sparing.ui.fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -13,11 +13,14 @@ import kelompok.app.sparing.R;
  * Created by Jack on 12/15/2017.
  */
 
-public class chatfragment extends Fragment {
-    @Nullable
-    @Override
+public class SpectateFragment extends Fragment {
+
+    @Nullable @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.chat,container,false);
-        return v;
+        return inflater.inflate(R.layout.fragment_spectate, container, false);
+    }
+
+    @Override public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
     }
 }

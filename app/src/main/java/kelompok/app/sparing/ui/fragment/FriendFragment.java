@@ -1,4 +1,4 @@
-package kelompok.app.sparing.ui;
+package kelompok.app.sparing.ui.fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -13,11 +13,15 @@ import kelompok.app.sparing.R;
  * Created by Jack on 12/15/2017.
  */
 
-public class matchupfragment extends Fragment {
-    @Nullable
-    @Override
+public class FriendFragment extends Fragment{
+
+    @Nullable @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.match_up,container,false);
-        return v;
+        return inflater.inflate(R.layout.fragment_friend, container, false);
     }
+
+    @Override public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
+
 }
