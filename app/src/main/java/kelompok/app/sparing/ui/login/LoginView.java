@@ -1,5 +1,6 @@
 package kelompok.app.sparing.ui.login;
 
+import kelompok.app.sparing.base.RequestView;
 import kelompok.app.sparing.model.Login;
 
 /**
@@ -7,7 +8,6 @@ import kelompok.app.sparing.model.Login;
  * github: @isfaaghyth
  */
 
-public interface LoginView {
-    void onSuccess(Login login);
-    void onError(String err);
+interface LoginView extends RequestView<Login> {
+    //let be empty
 }
