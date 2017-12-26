@@ -1,10 +1,10 @@
 package kelompok.app.sparing.model;
 
-public class User{
-	private String createdAt;
-	private String name;
-	private String phoneNumber;
+public class User {
 	private int id;
+	private String name;
+	private String createdAt;
+	private String phoneNumber;
 	private String firebaseToken;
 	private String email;
 	private String updatedAt;
