@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "295516294188",
+    "firebase_url": "https://sparing-d9f69.firebaseio.com",
+    "project_id": "sparing-d9f69",
+    "storage_bucket": "sparing-d9f69.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295516294188:android:ce37784838c58f60",
+        "android_client_info": {
+          "package_name": "kelompok.app.sparing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "295516294188-evk0ld99t2eev6qa1tbp8smn5p8006od.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kelompok.app.sparing",
+            "certificate_hash": "0f058e9963e79a8e54f59684e3693a1558785760"
+          }
+        },
+        {
+          "client_id": "295516294188-t4hq36a20r8jarsj1htuu74smgd3o5qj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA581SJeHX_Az4qteKG-r2ZjKLN9343o_0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "295516294188-t4hq36a20r8jarsj1htuu74smgd3o5qj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

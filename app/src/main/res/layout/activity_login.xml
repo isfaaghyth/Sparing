@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bg_login"
-        android:scaleType="centerCrop"/>
+        android:scaleType="fitCenter"/>
 
     <View
         android:layout_width="match_parent"
@@ -22,55 +22,6 @@
         android:layout_height="match_parent"
         android:background="@color/colorPrimaryTrans50"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="@dimen/default_padding">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LT"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:textSize="55sp"/>
-
-        <EditText
-            android:id="@+id/edt_username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/editbox_background_normal"
-            android:padding="@dimen/edittext_normal"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:hint="Username"/>
-
-        <EditText
-            android:id="@+id/edt_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/editbox_background_normal"
-            android:padding="@dimen/edittext_normal"
-            android:layout_marginTop="6dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:inputType="textPassword"
-            android:hint="Password"/>
-
-        <Button
-            android:id="@+id/btn_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="LOGIN"
-            android:textColor="@android:color/white"
-            android:foreground="?selectableItemBackground"
-            android:background="@color/colorAccent"/>
-
-    </LinearLayout>
 
 </RelativeLayout>
