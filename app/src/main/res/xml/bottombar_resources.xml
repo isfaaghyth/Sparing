@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tabs>
-    <tab id="@+id/matchup"
+    <tab id="@+id/tab_matchup"
          icon="@mipmap/icon_matchup"
          title="MATCH UP"/>
 
-    <tab id="@+id/spectate"
+    <tab id="@+id/tab_spectate"
          icon="@mipmap/icon_spectate"
          title="SPECTATE"/>
 
-    <tab id="@+id/friend"
+    <tab id="@+id/tab_friend"
          icon="@mipmap/icon_friends"
          title="FRIENDS"/>
 
-    <tab id="@+id/profile"
+    <tab id="@+id/tab_profile"
          icon="@mipmap/icon_profile"
          title="PROFILE"/>
 </tabs>
