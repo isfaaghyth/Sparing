@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 
+import kelompok.app.sparing.R;
+
 /**
  * Created by isfaaghyth on 12/28/17.
  * github: @isfaaghyth
@@ -40,6 +42,8 @@ public class GlideCircle {
         Glide.with(context)
                 .load(uri)
                 .asBitmap().centerCrop()
+                .error(R.mipmap.ic_person)
+                .placeholder(R.mipmap.ic_person)
                 .into(new BitmapImageViewTarget(imageView) {
                     @Override protected void setResource(Bitmap resource) {
                         RoundedBitmapDrawable rounded =

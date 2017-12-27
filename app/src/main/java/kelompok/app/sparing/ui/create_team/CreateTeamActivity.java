@@ -1,6 +1,8 @@
 package kelompok.app.sparing.ui.create_team;
 
+import android.support.v7.widget.GridLayoutManager;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -27,9 +29,11 @@ public class CreateTeamActivity extends BaseActivity<CreateTeamPresenter> implem
     @BindView(R.id.lst_team_member) InfinitePlaceHolderView lstTeamMember;
     @BindView(R.id.edt_search_member) EditText edtSearchMember;
     @BindView(R.id.layout_member) LinearLayout layoutMember;
+    @BindView(R.id.btn_create_team) Button btnCreateTeam;
     @BindView(R.id.layout_team) LinearLayout layoutTeam;
     @BindView(R.id.edt_team_name) EditText edtTeamName;
     @BindView(R.id.txt_warning) TextView txtWarning;
+    @BindView(R.id.btn_next) Button btnNext;
 
     ArrayList<User> members = new ArrayList<>();
 
@@ -44,6 +48,7 @@ public class CreateTeamActivity extends BaseActivity<CreateTeamPresenter> implem
     @Override protected void onActivityLoaded() {
         setTitleBar("Create Team");
         showBackButton(true);
+        lstTeamMember.setLayoutManager(new GridLayoutManager(this, 4));
     }
 
     @OnClick(R.id.btn_create_team)
@@ -53,7 +58,11 @@ public class CreateTeamActivity extends BaseActivity<CreateTeamPresenter> implem
 
     @OnClick(R.id.btn_next)
     public void onNextClicked() {
-
+        if (members.size() == 0) {
+            Toast("At least there are one member with you");
+        } else {
+            createTeam();
+        }
     }
 
     @OnClick(R.id.btn_find_member)
@@ -63,7 +72,10 @@ public class CreateTeamActivity extends BaseActivity<CreateTeamPresenter> implem
     }
 
     void createTeam() {
-
+        btnCreateTeam.setVisibility(View.VISIBLE);
+        layoutTeam.setVisibility(View.VISIBLE);
+        layoutMember.setVisibility(View.GONE);
+        btnNext.setVisibility(View.GONE);
     }
 
     void memberList() {
@@ -84,9 +96,21 @@ public class CreateTeamActivity extends BaseActivity<CreateTeamPresenter> implem
             txtWarning.setVisibility(View.VISIBLE);
             txtWarning.setText(R.string.str_not_found);
         } else {
-            members.add(usr);
-            memberList();
+            if (!isMemberExist(usr)) {
+                members.add(usr);
+                memberList();
+            }
         }
+    }
+
+    private boolean isMemberExist(User usr) {
+        if (members.size() == 0) return false;
+        for (int i=0; i<members.size(); i++) {
+            if (members.get(i).getId() == usr.getId()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override public void onCreateTeamSuccess(Team team) {
