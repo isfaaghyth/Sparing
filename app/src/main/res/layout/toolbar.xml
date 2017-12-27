@@ -18,6 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
+            android:text="@string/app_name"
             fontPath="fonts/OpenSans-SemiBold.ttf"
             android:textColor="@android:color/white"
             android:layout_centerVertical="true"/>
