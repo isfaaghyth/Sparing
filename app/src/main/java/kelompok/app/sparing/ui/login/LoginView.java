@@ -1,5 +1,7 @@
 package kelompok.app.sparing.ui.login;
 
+import android.support.v7.app.AppCompatActivity;
+
 import kelompok.app.sparing.base.RequestView;
 import kelompok.app.sparing.model.Login;
 
@@ -9,5 +11,5 @@ import kelompok.app.sparing.model.Login;
  */
 
 interface LoginView extends RequestView<Login> {
-    //let be empty
+    AppCompatActivity getThis();
 }

@@ -19,7 +19,7 @@ public interface Routes {
             @Field("name") String name,
             @Field("email") String email,
             @Field("password") String password,
-            @Field("phone_number") String phoneNumber,
+            @Field("avatar") String avatar,
             @Field("firebase_token") String firebaseToken
     );
 
