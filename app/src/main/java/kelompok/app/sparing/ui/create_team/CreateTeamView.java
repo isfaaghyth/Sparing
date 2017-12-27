@@ -1,6 +1,5 @@
 package kelompok.app.sparing.ui.create_team;
 
-import kelompok.app.sparing.model.Team;
 import kelompok.app.sparing.model.User;
 
 /**
@@ -10,7 +9,7 @@ import kelompok.app.sparing.model.User;
 
 interface CreateTeamView {
     void onFindSuccess(User usr);
-    void onCreateTeamSuccess(Team team);
+    void onCreateTeamSuccess();
     void onCompletedStoreMember();
     void onError(String err);
 }

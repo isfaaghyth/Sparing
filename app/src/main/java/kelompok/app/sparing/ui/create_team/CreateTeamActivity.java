@@ -53,7 +53,9 @@ public class CreateTeamActivity extends BaseActivity<CreateTeamPresenter> implem
 
     @OnClick(R.id.btn_create_team)
     public void onCreateTeamClicked() {
-
+        String teamName = edtTeamName.getText().toString().trim();
+        presenter.createTeam(teamName, members);
+        loader.show();
     }
 
     @OnClick(R.id.btn_next)
@@ -113,15 +115,17 @@ public class CreateTeamActivity extends BaseActivity<CreateTeamPresenter> implem
         return false;
     }
 
-    @Override public void onCreateTeamSuccess(Team team) {
-
+    @Override public void onCreateTeamSuccess() {
+        Toast("yey, onCreateTeamSuccess()");
     }
 
     @Override public void onCompletedStoreMember() {
-
+        loader.hide();
+        Toast("alhamdulillah, onCompletedStoreMember()");
     }
 
     @Override public void onError(String err) {
-
+        loader.hide();
+        Toast(err);
     }
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import kelompok.app.sparing.model.Login;
 import kelompok.app.sparing.model.Team;
+import kelompok.app.sparing.model.TeamMember;
 import kelompok.app.sparing.model.User;
 import retrofit2.Response;
 import retrofit2.http.Field;
@@ -41,6 +42,12 @@ public interface Routes {
             @Field("name") String teamName,
             @Field("owner") String ownerUserId,
             @Field("status") String status
+    );
+
+    @FormUrlEncoded @POST("teammember")
+    Observable<Response<TeamMember>> storeMember(
+            @Field("team") String team,
+            @Field("member") String userId
     );
 
     /**

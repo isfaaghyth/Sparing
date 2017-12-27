@@ -14,6 +14,7 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import kelompok.app.sparing.R;
+import kelompok.app.sparing.utils.ProgressLoader;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
@@ -31,6 +32,8 @@ abstract public class BaseActivity<P extends BasePresenter> extends AppCompatAct
     protected abstract @LayoutRes int setContentView();
     protected abstract void onActivityLoaded();
 
+    protected ProgressLoader loader;
+
     @Override public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding(setContentView());
@@ -41,6 +44,7 @@ abstract public class BaseActivity<P extends BasePresenter> extends AppCompatAct
         ButterKnife.bind(this);
         presenter = initPresenter();
         setSupportActionBar(toolbar);
+        loader = new ProgressLoader(this);
         onActivityLoaded();
     }
 
