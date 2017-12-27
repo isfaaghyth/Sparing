@@ -6,4 +6,8 @@
 
     <color name="colorPrimaryTrans50">#902C3C43</color>
     <color name="white">#FFFFFF</color>
+
+    <color name="colorWarning">#E67E22</color>
+
+    <color name="colorGrey">#7F8C8D</color>
 </resources>

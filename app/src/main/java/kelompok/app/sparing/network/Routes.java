@@ -1,10 +1,16 @@
 package kelompok.app.sparing.network;
 
+import java.util.ArrayList;
+
 import kelompok.app.sparing.model.Login;
+import kelompok.app.sparing.model.Team;
+import kelompok.app.sparing.model.User;
 import retrofit2.Response;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 import rx.Observable;
 
 /**
@@ -20,6 +26,7 @@ public interface Routes {
             @Field("email") String email,
             @Field("password") String password,
             @Field("avatar") String avatar,
+            @Field("sportId") String sportId,
             @Field("firebase_token") String firebaseToken
     );
 
@@ -29,4 +36,20 @@ public interface Routes {
             @Field("password") String password
     );
 
+    @FormUrlEncoded @POST("team")
+    Observable<Response<Team>> createTeam(
+            @Field("name") String teamName,
+            @Field("owner") String ownerUserId,
+            @Field("status") String status
+    );
+
+    /**
+     * find user by sportId
+     * @param sportId
+     * @return
+     */
+    @GET("users")
+    Observable<Response<ArrayList<User>>> findUserBySportId(
+            @Query("sportId") String sportId
+    );
 }

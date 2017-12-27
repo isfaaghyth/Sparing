@@ -5,4 +5,5 @@
     <string name="chats">CHATS</string>
     <string name="contacts">CONTACTS</string>
     <string name="profile">PROFILES</string>
+    <string name="str_not_found">Ops!, Not Found.</string>
 </resources>

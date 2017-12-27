@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="100dp"
+        android:layout_above="@+id/btn_create_team"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:id="@+id/layout_team"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Write your team name:"
+                android:textSize="16sp"
+                fontPath="fonts/OpenSans-Bold.ttf"/>
+
+            <EditText
+                android:id="@+id/edt_team_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_member"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Search your friend with Sport ID:"
+                android:textSize="14sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/edt_search_member"
+                    android:layout_width="0dp"
+                    android:layout_weight="5"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"/>
+
+                <ImageView
+                    android:id="@+id/btn_find_member"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:src="@mipmap/ic_search"
+                    android:layout_height="35dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txt_warning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWarning"
+                android:text="ops! your friend not found."
+                fontPath="fonts/OpenSans-Light.ttf"
+                android:visibility="gone"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+
+        <com.mindorks.placeholderview.InfinitePlaceHolderView
+            android:id="@+id/lst_team_member"
+            android:layout_marginTop="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="NEXT"
+        android:textColor="@android:color/white"
+        android:clickable="true"
+        android:background="@color/colorGrey"/>
+
+    <Button
+        android:id="@+id/btn_create_team"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="CREATE TEAM"
+        android:textColor="@android:color/white"
+        android:clickable="true"
+        android:visibility="gone"
+        android:background="@color/colorAccent"/>
+
+</RelativeLayout>

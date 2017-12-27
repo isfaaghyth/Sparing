@@ -32,6 +32,7 @@
         </activity>
 
         <activity android:name=".ui.main.MainActivity"/>
+        <activity android:name=".ui.create_team.CreateTeamActivity"/>
 
     </application>
 

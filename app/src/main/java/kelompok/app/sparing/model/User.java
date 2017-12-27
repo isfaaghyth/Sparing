@@ -4,10 +4,20 @@ public class User {
 	private int id;
 	private String name;
 	private String createdAt;
-	private String phoneNumber;
-	private String firebaseToken;
+	private String phone_number;
+	private String sportId;
+	private String firebase_token;
+	private String avatar;
 	private String email;
 	private String updatedAt;
+
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public String getSportId() {
+		return sportId;
+	}
 
 	public String getCreatedAt(){
 		return createdAt;
@@ -17,16 +27,16 @@ public class User {
 		return name;
 	}
 
-	public String getPhoneNumber(){
-		return phoneNumber;
+	public String getPhone_number() {
+		return phone_number;
 	}
 
 	public int getId(){
 		return id;
 	}
 
-	public String getFirebaseToken(){
-		return firebaseToken;
+	public String getFirebase_token() {
+		return firebase_token;
 	}
 
 	public String getEmail(){
@@ -43,9 +53,10 @@ public class User {
 			"User{" + 
 			"createdAt = '" + createdAt + '\'' + 
 			",name = '" + name + '\'' + 
-			",phone_number = '" + phoneNumber + '\'' + 
+			",phone_number = '" + phone_number + '\'' +
+			",sportId = '" + sportId + '\'' +
 			",id = '" + id + '\'' + 
-			",firebase_token = '" + firebaseToken + '\'' + 
+			",firebase_token = '" + firebase_token + '\'' +
 			",email = '" + email + '\'' + 
 			",updatedAt = '" + updatedAt + '\'' + 
 			"}";
