@@ -1,5 +1,7 @@
 package kelompok.app.sparing.ui.create_team;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 import io.isfaaghyth.rak.Rak;
@@ -12,6 +14,7 @@ import rx.Observable;
 import rx.Observer;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
@@ -48,42 +51,44 @@ public class CreateTeamPresenter extends BasePresenter<CreateTeamView> {
         String myId = String.valueOf(Rak.grab("id"));
         String status = "active";
         onSubscribe(service.createTeam(teamName, myId, status), new Subscriber<Response<Team>>() {
-            @Override public void onCompleted() {}
+            String teamId = "";
+            @Override public void onCompleted() {
+                storeTeamMember(Integer.valueOf(teamId), members);
+            }
             @Override public void onError(Throwable e) {
                 view.onError(e.getMessage());
             }
             @Override public void onNext(Response<Team> res) {
-                if (res.code() == 200) {
-                    storeTeamMember(res.body().getId(), members);
+                if (res.isSuccessful()) {
+                    teamId = String.valueOf(res.body().getId());
                 }
             }
         });
     }
 
     private void storeTeamMember(final int teamId, ArrayList<User> members) {
-        Observable.from(members)
+        onSubscribe(Observable.from(members)
                 .flatMap(new Func1<User, Observable<Response<TeamMember>>>() {
                     @Override public Observable<Response<TeamMember>> call(User user) {
                         return service.storeMember(
                                 String.valueOf(teamId),
-                                String.valueOf(user.getId())
-                        );
+                                String.valueOf(user.getId()));
                     }
-                })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Response<TeamMember>>() {
-                    @Override public void onCompleted() {
-                        view.onCompletedStoreMember();
-                    }
+                }), new Subscriber<Response<TeamMember>>() {
+            @Override public void onCompleted() {
+                view.onCompletedStoreMember();
+            }
 
-                    @Override public void onError(Throwable e) {
-                        view.onError(e.getMessage());
-                    }
+            @Override public void onError(Throwable e) {
+                view.onError(e.getMessage());
+            }
 
-                    @Override public void onNext(Response<TeamMember> teamMember) {
-                        view.onCreateTeamSuccess();
-                    }
-                });
+            @Override public void onNext(Response<TeamMember> res) {
+                if (res.code() == 200) {
+                    view.onCreateTeamSuccess();
+                    Log.e("TAG", res.toString());
+                }
+            }
+        });
     }
 }
