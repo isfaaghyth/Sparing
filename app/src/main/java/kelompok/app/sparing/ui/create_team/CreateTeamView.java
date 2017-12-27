@@ -9,7 +9,6 @@ import kelompok.app.sparing.model.User;
 
 interface CreateTeamView {
     void onFindSuccess(User usr);
-    void onCreateTeamSuccess();
     void onCompletedStoreMember();
     void onError(String err);
 }

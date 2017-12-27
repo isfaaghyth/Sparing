@@ -1,10 +1,10 @@
 package kelompok.app.sparing.model;
 
 public class Team{
-	private String createdAt;
-	private String name;
 	private int id;
+	private String name;
 	private String status;
+	private String createdAt;
 	private String updatedAt;
 
 	public String getCreatedAt(){

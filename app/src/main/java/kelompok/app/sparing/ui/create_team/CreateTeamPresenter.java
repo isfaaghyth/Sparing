@@ -11,12 +11,8 @@ import kelompok.app.sparing.model.TeamMember;
 import kelompok.app.sparing.model.User;
 import retrofit2.Response;
 import rx.Observable;
-import rx.Observer;
 import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
 import rx.functions.Func1;
-import rx.schedulers.Schedulers;
 
 /**
  * Created by isfaaghyth on 12/28/17.
@@ -27,6 +23,16 @@ public class CreateTeamPresenter extends BasePresenter<CreateTeamView> {
 
     public CreateTeamPresenter(CreateTeamView view) {
         super.attachView(view);
+    }
+
+    boolean isMemberExist(User usr, ArrayList<User> members) {
+        if (members.size() == 0) return false;
+        for (int i=0; i<members.size(); i++) {
+            if (members.get(i).getId() == usr.getId()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     void findUserBySportId(String sportId) {
@@ -51,9 +57,9 @@ public class CreateTeamPresenter extends BasePresenter<CreateTeamView> {
         String myId = String.valueOf(Rak.grab("id"));
         String status = "active";
         onSubscribe(service.createTeam(teamName, myId, status), new Subscriber<Response<Team>>() {
-            String teamId = "";
+            String teamId;
             @Override public void onCompleted() {
-                storeTeamMember(Integer.valueOf(teamId), members);
+                storeTeamMember(teamId, members);
             }
             @Override public void onError(Throwable e) {
                 view.onError(e.getMessage());
@@ -66,13 +72,11 @@ public class CreateTeamPresenter extends BasePresenter<CreateTeamView> {
         });
     }
 
-    private void storeTeamMember(final int teamId, ArrayList<User> members) {
+    private void storeTeamMember(final String teamId, ArrayList<User> members) {
         onSubscribe(Observable.from(members)
                 .flatMap(new Func1<User, Observable<Response<TeamMember>>>() {
                     @Override public Observable<Response<TeamMember>> call(User user) {
-                        return service.storeMember(
-                                String.valueOf(teamId),
-                                String.valueOf(user.getId()));
+                        return service.storeMember(teamId, String.valueOf(user.getId()));
                     }
                 }), new Subscriber<Response<TeamMember>>() {
             @Override public void onCompleted() {
@@ -82,13 +86,7 @@ public class CreateTeamPresenter extends BasePresenter<CreateTeamView> {
             @Override public void onError(Throwable e) {
                 view.onError(e.getMessage());
             }
-
-            @Override public void onNext(Response<TeamMember> res) {
-                if (res.code() == 200) {
-                    view.onCreateTeamSuccess();
-                    Log.e("TAG", res.toString());
-                }
-            }
+            @Override public void onNext(Response<TeamMember> res) {}
         });
     }
 }

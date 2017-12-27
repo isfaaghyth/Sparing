@@ -18,6 +18,9 @@ import kelompok.app.sparing.adapter.MemberAdapter;
 import kelompok.app.sparing.base.BaseActivity;
 import kelompok.app.sparing.model.Team;
 import kelompok.app.sparing.model.User;
+import kelompok.app.sparing.service.NotifEvent;
+import kelompok.app.sparing.utils.StartActivities;
+import rx.functions.Action1;
 
 /**
  * Created by isfaaghyth on 12/28/17.
@@ -35,7 +38,7 @@ public class CreateTeamActivity extends BaseActivity<CreateTeamPresenter> implem
     @BindView(R.id.txt_warning) TextView txtWarning;
     @BindView(R.id.btn_next) Button btnNext;
 
-    ArrayList<User> members = new ArrayList<>();
+    private ArrayList<User> members = new ArrayList<>();
 
     @Override protected CreateTeamPresenter initPresenter() {
         return new CreateTeamPresenter(this);
@@ -69,6 +72,7 @@ public class CreateTeamActivity extends BaseActivity<CreateTeamPresenter> implem
 
     @OnClick(R.id.btn_find_member)
     public void findFriendClicked() {
+        txtWarning.setVisibility(View.GONE); //if exist
         String sportId = edtSearchMember.getText().toString().trim();
         presenter.findUserBySportId(sportId);
     }
@@ -84,11 +88,7 @@ public class CreateTeamActivity extends BaseActivity<CreateTeamPresenter> implem
         int position = 0;
         lstTeamMember.removeAllViews();
         for (User usr: members) {
-            lstTeamMember.addView(
-                    new MemberAdapter(position)
-                        .setContext(this)
-                        .setUser(usr)
-            );
+            lstTeamMember.addView(new MemberAdapter(position).setContext(this).setUser(usr));
             position++;
         }
     }
@@ -98,30 +98,19 @@ public class CreateTeamActivity extends BaseActivity<CreateTeamPresenter> implem
             txtWarning.setVisibility(View.VISIBLE);
             txtWarning.setText(R.string.str_not_found);
         } else {
-            if (!isMemberExist(usr)) {
+            if (!presenter.isMemberExist(usr, members)) {
                 members.add(usr);
                 memberList();
             }
         }
     }
 
-    private boolean isMemberExist(User usr) {
-        if (members.size() == 0) return false;
-        for (int i=0; i<members.size(); i++) {
-            if (members.get(i).getId() == usr.getId()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    @Override public void onCreateTeamSuccess() {
-        Toast("yey, onCreateTeamSuccess()");
-    }
-
     @Override public void onCompletedStoreMember() {
         loader.hide();
-        Toast("alhamdulillah, onCompletedStoreMember()");
+        Toast("alhamdulillah, udah jadi.");
+        NotifEvent.getInstance().post(true);
+        onBackPressed();
+        finish();
     }
 
     @Override public void onError(String err) {

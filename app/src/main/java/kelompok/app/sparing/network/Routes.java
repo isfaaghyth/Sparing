@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import kelompok.app.sparing.model.Login;
 import kelompok.app.sparing.model.Team;
 import kelompok.app.sparing.model.TeamMember;
+import kelompok.app.sparing.model.Teams;
 import kelompok.app.sparing.model.User;
 import retrofit2.Response;
 import retrofit2.http.Field;
@@ -59,4 +60,17 @@ public interface Routes {
     Observable<Response<ArrayList<User>>> findUserBySportId(
             @Query("sportId") String sportId
     );
+
+    /**
+     * Get team by ownerId
+     * @param ownerId
+     * @return
+     */
+    @GET("team")
+    Observable<Response<ArrayList<Teams>>> getTeamByOwner(
+            @Query("owner") String ownerId
+    );
+
+    @GET("team")
+    Observable<Response<ArrayList<Teams>>> getTeam();
 }

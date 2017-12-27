@@ -3,7 +3,7 @@ package kelompok.app.sparing.ui.main;
 import kelompok.app.sparing.R;
 import kelompok.app.sparing.adapter.ViewPagerAdapter;
 import kelompok.app.sparing.base.BasePresenter;
-import kelompok.app.sparing.ui.fragment.friend.FriendFragment;
+import kelompok.app.sparing.ui.fragment.team.TeamFragment;
 import kelompok.app.sparing.ui.fragment.matchup.MatchupFragment;
 import kelompok.app.sparing.ui.fragment.profile.ProfileFragment;
 import kelompok.app.sparing.ui.fragment.spectate.SpectateFragment;
@@ -24,7 +24,7 @@ class MainPresenter extends BasePresenter<MainView> {
         ViewPagerAdapter adapter = new ViewPagerAdapter(view.getFragment(), true);
         adapter.addFragment(new MatchupFragment(), "Matchup");
         adapter.addFragment(new SpectateFragment(), "Spectate");
-        adapter.addFragment(new FriendFragment(), "Friends");
+        adapter.addFragment(new TeamFragment(), "Team");
         adapter.addFragment(new ProfileFragment(), "Profile");
         viewPager.setAdapter(adapter);
     }

@@ -15,6 +15,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import kelompok.app.sparing.R;
 import kelompok.app.sparing.utils.ProgressLoader;
+import rx.Subscription;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
@@ -31,6 +32,8 @@ abstract public class BaseActivity<P extends BasePresenter> extends AppCompatAct
     protected abstract P initPresenter();
     protected abstract @LayoutRes int setContentView();
     protected abstract void onActivityLoaded();
+
+    protected Subscription subscriber; //backup
 
     protected ProgressLoader loader;
 
@@ -78,6 +81,11 @@ abstract public class BaseActivity<P extends BasePresenter> extends AppCompatAct
         super.onDestroy();
         if (presenter != null) {
             presenter.dettachView();
+        }
+        if (subscriber != null) {
+            if (!subscriber.isUnsubscribed()) {
+                subscriber.unsubscribe();
+            }
         }
     }
 
