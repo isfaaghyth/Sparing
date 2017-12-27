@@ -19,8 +19,8 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
 
     protected P presenter;
     protected abstract P initPresenter();
-    protected abstract void onFragmentLoaded();
     protected abstract @LayoutRes int setContentView();
+    protected abstract void onFragmentLoaded();
 
     @Nullable @Override public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return LayoutInflater.from(getContext()).inflate(setContentView(), container, false);
