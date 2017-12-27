@@ -1,7 +1,7 @@
 package kelompok.app.sparing.network;
 
-import okhttp3.Request;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -11,11 +11,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NetworkClient {
 
-    private static final String BASE_URL = "http://192.168.1.102:1337/";
+    private static final String BASE_URL = "http://192.168.43.98:1337/";
 
     public static Retrofit client() {
         return new Retrofit.Builder()
                     .baseUrl(BASE_URL)
+                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
     }

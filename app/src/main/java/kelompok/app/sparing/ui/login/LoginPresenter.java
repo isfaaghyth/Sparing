@@ -34,10 +34,12 @@ class LoginPresenter extends BasePresenter<LoginView> {
 
     void googleLoginResult(GoogleSignInResult result) {
         String fullName = result.getSignInAccount().getDisplayName();
-        String avatar = result.getSignInAccount().getPhotoUrl().toString();
+//        String avatar = (result.getSignInAccount().getPhotoUrl().toString() != null) ?
+//                        result.getSignInAccount().getPhotoUrl().toString() :
+//                        "holder.png";
         String email = result.getSignInAccount().getEmail();
         String pass = email.split("@")[0];
-        onRegister(fullName, email, pass, avatar, "firebaseToken");
+        onRegister(fullName, email, pass, "", "firebaseToken");
     }
 
     /**
