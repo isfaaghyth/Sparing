@@ -56,7 +56,8 @@ public class CreateTeamPresenter extends BasePresenter<CreateTeamView> {
     void createTeam(String teamName, final ArrayList<User> members) {
         String myId = String.valueOf(Rak.grab("id"));
         String status = "active";
-        onSubscribe(service.createTeam(teamName, myId, status), new Subscriber<Response<Team>>() {
+        String isPlay = "false";
+        onSubscribe(service.createTeam(teamName, myId, status, isPlay), new Subscriber<Response<Team>>() {
             String teamId;
             @Override public void onCompleted() {
                 storeTeamMember(teamId, members);

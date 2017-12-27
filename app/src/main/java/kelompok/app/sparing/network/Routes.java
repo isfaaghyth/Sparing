@@ -42,7 +42,8 @@ public interface Routes {
     Observable<Response<Team>> createTeam(
             @Field("name") String teamName,
             @Field("owner") String ownerUserId,
-            @Field("status") String status
+            @Field("status") String status,
+            @Field("isPlay") String isPlay
     );
 
     @FormUrlEncoded @POST("teammember")

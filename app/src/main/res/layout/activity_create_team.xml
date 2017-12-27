@@ -108,6 +108,7 @@
             android:text="NEXT"
             android:textColor="@android:color/white"
             android:clickable="true"
+            android:foreground="?selectableItemBackground"
             android:background="@color/colorGrey"/>
 
         <Button
@@ -118,6 +119,7 @@
             android:textColor="@android:color/white"
             android:clickable="true"
             android:visibility="gone"
+            android:foreground="?selectableItemBackground"
             android:background="@color/colorAccent"/>
 
     </FrameLayout>

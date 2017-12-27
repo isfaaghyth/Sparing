@@ -14,9 +14,9 @@ import rx.Subscriber;
  * github: @isfaaghyth
  */
 
-public class TeamPresenter extends BasePresenter<TeamView> {
+class TeamPresenter extends BasePresenter<TeamView> {
 
-    public TeamPresenter(TeamView v) {
+    TeamPresenter(TeamView v) {
         super.attachView(v);
     }
 

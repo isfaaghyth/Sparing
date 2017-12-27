@@ -9,13 +9,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/btn_create_team"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btn_new_matchup"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:text="NEW MATCH UP"
+        android:textColor="@android:color/white"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:src="@mipmap/ic_add"
-        android:layout_margin="16dp"/>
+        android:src="@mipmap/ic_add"/>
 
 </RelativeLayout>

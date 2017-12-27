@@ -33,9 +33,9 @@ public class MatchupFragment extends BaseFragment<MatchupPresenter> implements M
 
     }
 
-    @OnClick(R.id.btn_create_team)
-    public void onCreateTeamClicked() {
-        startActivity(new Intent(getContext(), CreateTeamActivity.class));
+    @OnClick(R.id.btn_new_matchup)
+    public void onNewMatchupClicked() {
+
     }
 
 }
