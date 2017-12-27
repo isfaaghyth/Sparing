@@ -4,6 +4,9 @@ import kelompok.app.sparing.R;
 import kelompok.app.sparing.adapter.ViewPagerAdapter;
 import kelompok.app.sparing.base.BasePresenter;
 import kelompok.app.sparing.ui.fragment.friend.FriendFragment;
+import kelompok.app.sparing.ui.fragment.matchup.MatchupFragment;
+import kelompok.app.sparing.ui.fragment.profile.ProfileFragment;
+import kelompok.app.sparing.ui.fragment.spectate.SpectateFragment;
 import kelompok.app.sparing.utils.CustomViewPager;
 
 /**
@@ -19,10 +22,10 @@ class MainPresenter extends BasePresenter<MainView> {
 
     void setupViewPager(CustomViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(view.getFragment(), true);
+        adapter.addFragment(new MatchupFragment(), "Matchup");
+        adapter.addFragment(new SpectateFragment(), "Spectate");
         adapter.addFragment(new FriendFragment(), "Friends");
-        adapter.addFragment(new FriendFragment(), "Friends");
-        adapter.addFragment(new FriendFragment(), "Friends");
-        adapter.addFragment(new FriendFragment(), "Friends");
+        adapter.addFragment(new ProfileFragment(), "Profile");
         viewPager.setAdapter(adapter);
     }
 
