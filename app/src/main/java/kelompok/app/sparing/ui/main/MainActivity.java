@@ -39,4 +39,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainVie
     @Override public FragmentManager getFragment() {
         return getSupportFragmentManager();
     }
+
+    @Override public void setTitleFragmentBar(String text) {
+        setTitleBar(text);
+    }
 }

@@ -33,6 +33,7 @@
 
         <activity android:name=".ui.main.MainActivity"/>
         <activity android:name=".ui.create_team.CreateTeamActivity"/>
+        <activity android:name=".ui.new_matchup.MatchUpActivity"/>
 
     </application>
 

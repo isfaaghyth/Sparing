@@ -11,4 +11,5 @@ import kelompok.app.sparing.utils.CustomViewPager;
 
 interface MainView {
     FragmentManager getFragment();
+    void setTitleFragmentBar(String text);
 }

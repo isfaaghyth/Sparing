@@ -30,9 +30,11 @@ class MainPresenter extends BasePresenter<MainView> {
     }
 
     void bottomChanged(CustomViewPager viewPagerMain, int tabId) {
-        int tabIds[] = {R.id.tab_matchup, R.id.tab_spectate, R.id.tab_friend, R.id.tab_profile};
+        String title[] = {"Match Up", "Spectate", "My Team", "Profile"};
+        int tabIds[] = {R.id.tab_matchup, R.id.tab_spectate, R.id.tab_team, R.id.tab_profile};
         for (int i=0; i < tabIds.length; i++) {
             if (tabId == tabIds[i]) {
+                view.setTitleFragmentBar(title[i]);
                 viewPagerMain.setCurrentItem(i, true);
                 break;
             }

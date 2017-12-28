@@ -8,7 +8,7 @@
          icon="@mipmap/icon_spectate"
          title="SPECTATE"/>
 
-    <tab id="@+id/tab_friend"
+    <tab id="@+id/tab_team"
          icon="@mipmap/icon_friends"
          title="FRIENDS"/>
 

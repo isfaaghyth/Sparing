@@ -3,6 +3,7 @@ package kelompok.app.sparing.network;
 import java.util.ArrayList;
 
 import kelompok.app.sparing.model.Login;
+import kelompok.app.sparing.model.Sparing;
 import kelompok.app.sparing.model.Team;
 import kelompok.app.sparing.model.TeamMember;
 import kelompok.app.sparing.model.Teams;
@@ -74,4 +75,9 @@ public interface Routes {
 
     @GET("team")
     Observable<Response<ArrayList<Teams>>> getTeam();
+
+    @GET("sparing")
+    Observable<Response<ArrayList<Sparing>>> getSparingByStatus(
+            @Query("status") String status
+    );
 }
